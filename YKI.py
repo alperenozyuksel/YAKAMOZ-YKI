@@ -88,33 +88,33 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
-        self.pushButton_9 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_9.setObjectName("pushButton_9")
-        self.gridLayout.addWidget(self.pushButton_9, 4, 2, 1, 1)
-        self.pushButton_7 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_7.setObjectName("pushButton_7")
-        self.gridLayout.addWidget(self.pushButton_7, 4, 0, 1, 1)
-        self.pushButton_8 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_8.setObjectName("pushButton_8")
-        self.gridLayout.addWidget(self.pushButton_8, 4, 1, 1, 1)
-        self.pushButton_2 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.gridLayout.addWidget(self.pushButton_2, 0, 0, 1, 1)
-        self.pushButton_4 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.gridLayout.addWidget(self.pushButton_4, 3, 0, 1, 1)
-        self.pushButton_6 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.gridLayout.addWidget(self.pushButton_6, 3, 2, 1, 1)
-        self.pushButton_5 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.gridLayout.addWidget(self.pushButton_5, 3, 1, 1, 1)
-        self.pushButton_3 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.gridLayout.addWidget(self.pushButton_3, 0, 2, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
+        self.loiter_button = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.loiter_button.setObjectName("loiter_button")
+        self.gridLayout.addWidget(self.loiter_button, 4, 2, 1, 1)
+        self.fbwb_button = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.fbwb_button.setObjectName("fbwb_button")
+        self.gridLayout.addWidget(self.fbwb_button, 4, 0, 1, 1)
+        self.rtl_button = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.rtl_button.setObjectName("rtl_button")
+        self.gridLayout.addWidget(self.rtl_button, 4, 1, 1, 1)
+        self.arm_button = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.arm_button.setObjectName("arm_button")
+        self.gridLayout.addWidget(self.arm_button, 0, 0, 1, 1)
+        self.fbwa_button = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.fbwa_button.setObjectName("fbwa_button")
+        self.gridLayout.addWidget(self.fbwa_button, 3, 0, 1, 1)
+        self.autotune_button = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.autotune_button.setObjectName("autotune_button")
+        self.gridLayout.addWidget(self.autotune_button, 3, 2, 1, 1)
+        self.auto_button = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.auto_button.setObjectName("auto_button")
+        self.gridLayout.addWidget(self.auto_button, 3, 1, 1, 1)
+        self.manuel_button = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.manuel_button.setObjectName("manuel_button")
+        self.gridLayout.addWidget(self.manuel_button, 0, 2, 1, 1)
+        self.disarm_button = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.disarm_button.setObjectName("disarm_button")
+        self.gridLayout.addWidget(self.disarm_button, 0, 1, 1, 1)
         self.camera = QtWidgets.QLabel(self.centralwidget)
         self.camera.setGeometry(QtCore.QRect(660, 490, 391, 331))
         self.camera.setObjectName("camera")
@@ -126,6 +126,15 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
+        self.arm_button.clicked.connect(self.arm_butonu)
+        self.manuel_button.clicked.connect(self.manuel_butonu)
+        self.fbwa_button.clicked.connect(self.fbwa_butonu)
+        self.auto_button.clicked.connect(self.auto_butonu)
+        self.autotune_button.clicked.connect(self.autotune_butonu)
+        self.fbwb_button.clicked.connect(self.fbwb_butonu)
+        self.rtl_button.clicked.connect(self.rtl_butonu)
+        self.loiter_button.clicked.connect(self.loiter_butonu)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -151,15 +160,15 @@ class Ui_MainWindow(object):
         self.wind_text.setText(_translate("MainWindow", "RÜZGAR :"))
         self.wind_value.setText(_translate("MainWindow", "TextLabel"))
         self.throttle_value.setText(_translate("MainWindow", "TextLabel"))
-        self.pushButton_9.setText(_translate("MainWindow", "LOITER"))
-        self.pushButton_7.setText(_translate("MainWindow", "FBWB"))
-        self.pushButton_8.setText(_translate("MainWindow", "RTL"))
-        self.pushButton_2.setText(_translate("MainWindow", "ARM"))
-        self.pushButton_4.setText(_translate("MainWindow", "FBWA"))
-        self.pushButton_6.setText(_translate("MainWindow", "AUTOTUNE"))
-        self.pushButton_5.setText(_translate("MainWindow", "AUTO"))
-        self.pushButton_3.setText(_translate("MainWindow", "MANUEL"))
-        self.pushButton.setText(_translate("MainWindow", "DISARM"))
+        self.loiter_button.setText(_translate("MainWindow", "LOITER"))
+        self.fbwb_button.setText(_translate("MainWindow", "FBWB"))
+        self.rtl_button.setText(_translate("MainWindow", "RTL"))
+        self.arm_button.setText(_translate("MainWindow", "ARM"))
+        self.fbwa_button.setText(_translate("MainWindow", "FBWA"))
+        self.autotune_button.setText(_translate("MainWindow", "AUTOTUNE"))
+        self.auto_button.setText(_translate("MainWindow", "AUTO"))
+        self.manuel_button.setText(_translate("MainWindow", "MANUEL"))
+        self.disarm_button.setText(_translate("MainWindow", "DISARM"))
         self.camera.setText(_translate("MainWindow", "TextLabel"))
 
     def yukseklik(self):
@@ -177,6 +186,45 @@ class Ui_MainWindow(object):
     def gaz(self):
         throttle1 = self.iha.channels['3']
         self.throttle_value.setText(str(throttle1))
+
+
+
+
+
+
+
+    def arm_butonu(self):
+        self.iha.arm()
+    def manuel_butonu(self):
+        self.iha.mode = VehicleMode("MANUAL")
+
+    def fbwa_butonu(self):
+        self.iha.mode = VehicleMode("FBWA")
+
+    def auto_butonu(self):
+        self.iha.mode = VehicleMode("AUTO")
+
+    def autotune_butonu(self):
+        self.iha.mode = VehicleMode("AUTOTUNE")
+
+    def fbwb_butonu(self):
+        self.iha.mode = VehicleMode("FBWB")
+
+    def rtl_butonu(self):
+        self.iha.mode = VehicleMode("RTL")
+
+    def loiter_butonu(self):
+        self.iha.mode = VehicleMode("LOITER")
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     import sys
