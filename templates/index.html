@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Location Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Drone Location Map</h1>
+    <div id="map" style="height: 600px;"></div>
+    <script>
+        var map = L.map('map').setView([{{ initial_location.lat }}, {{ initial_location.lon }}], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var marker = L.marker([{{ initial_location.lat }}, {{ initial_location.lon }}]).addTo(map);
+
+        function updateLocation() {
+            $.getJSON('/location', function(data) {
+                var newLatLng = new L.LatLng(data.lat, data.lon);
+                marker.setLatLng(newLatLng);
+                map.setView(newLatLng);
+            });
+        }
+
+        setInterval(updateLocation, 1000);
+    </script>
+</body>
+</html>
